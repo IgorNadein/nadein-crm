@@ -8,3 +8,6 @@ data/
 *.db
 *.sqlite3
 .DS_Store
+
+.venv-debian/
+*.egg-info/
