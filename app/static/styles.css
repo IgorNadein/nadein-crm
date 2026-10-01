@@ -103,3 +103,18 @@ dialog::backdrop { background:rgba(0,0,0,.72); backdrop-filter:blur(4px); }
   .metrics { gap:8px; }
   .metrics article { padding:14px; }
 }
+
+.topbar-actions { display:flex; align-items:center; justify-content:flex-end; gap:10px; flex-wrap:wrap; }
+.language-switch { display:flex; gap:4px; padding:4px; border:1px solid var(--line); border-radius:12px; background:var(--panel); }
+.lang-btn { min-width:38px; border:0; border-radius:8px; padding:7px 8px; background:transparent; color:var(--muted); font-size:12px; font-weight:800; letter-spacing:.06em; }
+.lang-btn:hover { color:var(--text); background:var(--panel-2); }
+.lang-btn.active { color:var(--accent-ink); background:var(--accent); }
+.link-btn { display:inline-flex; align-items:center; justify-content:center; text-decoration:none; }
+.app-footer { display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:20px 4px 0; color:var(--muted); font-size:13px; }
+.app-footer a { color:var(--text); text-decoration:none; }
+.app-footer a:hover { color:var(--accent); }
+@media (max-width: 720px) {
+  .topbar-actions { width:100%; justify-content:flex-start; }
+  .language-switch { order:-1; }
+  .link-btn, .topbar-actions .primary { flex:1; }
+}

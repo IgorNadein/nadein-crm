@@ -3,8 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nadein CRM</title>
-  <meta name="description" content="Мини-CRM для заявок агентства">
+  <meta name="theme-color" content="#0b0d10">
+  <title>Nadein CRM — Telegram leads, tags & pipeline</title>
+  <meta name="description" content="Nadein CRM — compact lead management for Telegram and manual intake, with tags, search and statuses.">
+  <meta property="og:title" content="Nadein CRM">
+  <meta property="og:description" content="Telegram leads and manual intake in one focused CRM workspace.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://crm.aishka.su/">
   <link rel="stylesheet" href="/assets/styles.css">
 </head>
 <body>
@@ -13,73 +18,87 @@
       <div>
         <div class="eyebrow">NADEIN SYSTEMS · MVP</div>
         <h1>Nadein CRM</h1>
-        <p>Лиды из Telegram и ручного ввода — в одном рабочем списке.</p>
+        <p data-i18n="tagline">Лиды из Telegram и ручного ввода — в одном рабочем списке.</p>
       </div>
-      <button class="primary" id="openCreate">+ Новый лид</button>
+      <div class="topbar-actions">
+        <div class="language-switch" aria-label="Language">
+          <button class="lang-btn" data-lang="ru" aria-label="Русский">RU</button>
+          <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+          <button class="lang-btn" data-lang="de" aria-label="Deutsch">DE</button>
+        </div>
+        <a class="ghost link-btn" href="https://t.me/nadein_crm_bot" target="_blank" rel="noreferrer" data-i18n="openBot">Открыть бота</a>
+        <button class="primary" id="openCreate" data-i18n="newLead">+ Новый лид</button>
+      </div>
     </header>
 
-    <section class="metrics" aria-label="Метрики">
-      <article><span>Всего</span><strong id="metricTotal">0</strong></article>
-      <article><span>Новые</span><strong id="metricNew">0</strong></article>
+    <section class="metrics" aria-label="Metrics">
+      <article><span data-i18n="metricTotal">Всего</span><strong id="metricTotal">0</strong></article>
+      <article><span data-i18n="metricNew">Новые</span><strong id="metricNew">0</strong></article>
       <article><span>Telegram</span><strong id="metricTelegram">0</strong></article>
-      <article><span>Вручную</span><strong id="metricManual">0</strong></article>
+      <article><span data-i18n="metricManual">Вручную</span><strong id="metricManual">0</strong></article>
     </section>
 
     <section class="toolbar">
       <label class="search">
-        <span>Поиск</span>
-        <input id="searchInput" placeholder="Имя, контакт или запрос">
+        <span data-i18n="searchLabel">Поиск</span>
+        <input id="searchInput" data-i18n-placeholder="searchPlaceholder" placeholder="Имя, контакт или запрос">
       </label>
       <div class="tags-filter">
-        <span>Тег</span>
-        <div id="tagFilters" class="chips"><button class="chip active" data-tag="">Все</button></div>
+        <span data-i18n="tagLabel">Тег</span>
+        <div id="tagFilters" class="chips"><button class="chip active" data-tag="" data-i18n="allTags">Все</button></div>
       </div>
-      <button class="ghost" id="refreshBtn">Обновить</button>
+      <button class="ghost" id="refreshBtn" data-i18n="refresh">Обновить</button>
     </section>
 
     <main class="grid">
       <section class="panel list-panel">
         <div class="panel-head">
           <div>
-            <h2>Лиды</h2>
-            <p id="listCaption">Загрузка…</p>
+            <h2 data-i18n="leadsTitle">Лиды</h2>
+            <p id="listCaption" data-i18n="loading">Загрузка…</p>
           </div>
         </div>
         <div id="leadList" class="lead-list"></div>
         <div id="emptyState" class="empty hidden">
           <div class="empty-icon">◎</div>
-          <h3>Ничего не найдено</h3>
-          <p>Смените фильтр или добавьте первый лид.</p>
+          <h3 data-i18n="emptyTitle">Ничего не найдено</h3>
+          <p data-i18n="emptyText">Смените фильтр или добавьте первый лид.</p>
         </div>
       </section>
 
       <aside class="panel detail-panel" id="detailPanel">
         <div class="detail-placeholder" id="detailPlaceholder">
           <div class="empty-icon">↗</div>
-          <h3>Выберите лид</h3>
-          <p>Справа появятся контакт, запрос, источник и теги.</p>
+          <h3 data-i18n="selectLeadTitle">Выберите лид</h3>
+          <p data-i18n="selectLeadText">Справа появятся контакт, запрос, источник и теги.</p>
         </div>
         <div id="detailContent" class="hidden"></div>
       </aside>
     </main>
+
+    <footer class="app-footer">
+      <span data-i18n="footerBuilt">Built as a focused product MVP.</span>
+      <a href="https://github.com/IgorNadein/nadein-crm" target="_blank" rel="noreferrer">GitHub</a>
+      <a href="/docs" target="_blank" rel="noreferrer">API</a>
+    </footer>
   </div>
 
   <dialog id="createDialog">
     <form method="dialog" id="createForm" class="form-card">
       <div class="dialog-head">
         <div>
-          <div class="eyebrow">РУЧНОЕ ДОБАВЛЕНИЕ</div>
-          <h2>Новый лид</h2>
+          <div class="eyebrow" data-i18n="manualEntry">РУЧНОЕ ДОБАВЛЕНИЕ</div>
+          <h2 data-i18n="newLeadTitle">Новый лид</h2>
         </div>
-        <button type="button" class="icon-btn" id="closeCreate">×</button>
+        <button type="button" class="icon-btn" id="closeCreate" aria-label="Close">×</button>
       </div>
-      <label>Имя<input name="name" required minlength="2" maxlength="100" placeholder="Анна Петрова"></label>
-      <label>Контакт<input name="contact" required minlength="3" maxlength="200" placeholder="@anna или +7…"></label>
-      <label>Запрос<textarea name="request" required minlength="3" maxlength="4000" rows="5" placeholder="Что нужно клиенту"></textarea></label>
+      <label><span data-i18n="nameLabel">Имя</span><input name="name" required minlength="2" maxlength="100" data-i18n-placeholder="namePlaceholder" placeholder="Анна Петрова"></label>
+      <label><span data-i18n="contactLabel">Контакт</span><input name="contact" required minlength="3" maxlength="200" data-i18n-placeholder="contactPlaceholder" placeholder="@anna или +7…"></label>
+      <label><span data-i18n="requestLabel">Запрос</span><textarea name="request" required minlength="3" maxlength="4000" rows="5" data-i18n-placeholder="requestPlaceholder" placeholder="Что нужно клиенту"></textarea></label>
       <div id="createError" class="error hidden"></div>
       <div class="dialog-actions">
-        <button type="button" class="ghost" id="cancelCreate">Отмена</button>
-        <button type="submit" class="primary">Создать лид</button>
+        <button type="button" class="ghost" id="cancelCreate" data-i18n="cancel">Отмена</button>
+        <button type="submit" class="primary" data-i18n="createLead">Создать лид</button>
       </div>
     </form>
   </dialog>
