@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nadein CRM</title>
+  <meta name="description" content="Мини-CRM для заявок агентства">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">NADEIN SYSTEMS · MVP</div>
+        <h1>Nadein CRM</h1>
+        <p>Лиды из Telegram и ручного ввода — в одном рабочем списке.</p>
+      </div>
+      <button class="primary" id="openCreate">+ Новый лид</button>
+    </header>
+
+    <section class="metrics" aria-label="Метрики">
+      <article><span>Всего</span><strong id="metricTotal">0</strong></article>
+      <article><span>Новые</span><strong id="metricNew">0</strong></article>
+      <article><span>Telegram</span><strong id="metricTelegram">0</strong></article>
+      <article><span>Вручную</span><strong id="metricManual">0</strong></article>
+    </section>
+
+    <section class="toolbar">
+      <label class="search">
+        <span>Поиск</span>
+        <input id="searchInput" placeholder="Имя, контакт или запрос">
+      </label>
+      <div class="tags-filter">
+        <span>Тег</span>
+        <div id="tagFilters" class="chips"><button class="chip active" data-tag="">Все</button></div>
+      </div>
+      <button class="ghost" id="refreshBtn">Обновить</button>
+    </section>
+
+    <main class="grid">
+      <section class="panel list-panel">
+        <div class="panel-head">
+          <div>
+            <h2>Лиды</h2>
+            <p id="listCaption">Загрузка…</p>
+          </div>
+        </div>
+        <div id="leadList" class="lead-list"></div>
+        <div id="emptyState" class="empty hidden">
+          <div class="empty-icon">◎</div>
+          <h3>Ничего не найдено</h3>
+          <p>Смените фильтр или добавьте первый лид.</p>
+        </div>
+      </section>
+
+      <aside class="panel detail-panel" id="detailPanel">
+        <div class="detail-placeholder" id="detailPlaceholder">
+          <div class="empty-icon">↗</div>
+          <h3>Выберите лид</h3>
+          <p>Справа появятся контакт, запрос, источник и теги.</p>
+        </div>
+        <div id="detailContent" class="hidden"></div>
+      </aside>
+    </main>
+  </div>
+
+  <dialog id="createDialog">
+    <form method="dialog" id="createForm" class="form-card">
+      <div class="dialog-head">
+        <div>
+          <div class="eyebrow">РУЧНОЕ ДОБАВЛЕНИЕ</div>
+          <h2>Новый лид</h2>
+        </div>
+        <button type="button" class="icon-btn" id="closeCreate">×</button>
+      </div>
+      <label>Имя<input name="name" required minlength="2" maxlength="100" placeholder="Анна Петрова"></label>
+      <label>Контакт<input name="contact" required minlength="3" maxlength="200" placeholder="@anna или +7…"></label>
+      <label>Запрос<textarea name="request" required minlength="3" maxlength="4000" rows="5" placeholder="Что нужно клиенту"></textarea></label>
+      <div id="createError" class="error hidden"></div>
+      <div class="dialog-actions">
+        <button type="button" class="ghost" id="cancelCreate">Отмена</button>
+        <button type="submit" class="primary">Создать лид</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast hidden" role="status"></div>
+  <script src="/assets/app.js" defer></script>
+</body>
+</html>
