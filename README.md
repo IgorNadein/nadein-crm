@@ -2,6 +2,7 @@
 
 **Живой MVP:** https://crm.aishka.su/  
 **GitHub:** https://github.com/IgorNadein/nadein-crm
+**Telegram-бот:** https://t.me/nadein_crm_bot
 
 > Demo-instance доступен по отдельному HTTPS-хосту через Cloudflare Tunnel. Код не зависит от туннеля и запускается локально или через Docker Compose.
 

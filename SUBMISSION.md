@@ -4,7 +4,7 @@
 
 - Живой MVP: https://crm.aishka.su/
 - Репозиторий: https://github.com/IgorNadein/nadein-crm
-- Telegram-бот: запускается из `bot/main.py` после передачи `BOT_TOKEN`; сценарий полностью реализован и использует тот же `/api/leads`.
+- Telegram-бот: https://t.me/nadein_crm_bot — запущен, сценарий имя → контакт → запрос создаёт лид через тот же `/api/leads`.
 
 ## Проверяемый сценарий
 

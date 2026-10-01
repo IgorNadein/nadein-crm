@@ -122,10 +122,8 @@ def build_router(config: Config) -> Router:
         await state.clear()
         short_id = lead["id"].split("-")[0]
         await message.answer(
-            "Готово — заявка уже в CRM.
-"
-            f"ID: <code>{short_id}</code>
-"
+            "Готово — заявка уже в CRM.\n"
+            f"ID: <code>{short_id}</code>\n"
             "Чтобы создать ещё одну, отправьте /new."
         )
 
