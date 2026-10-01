@@ -2,7 +2,7 @@
 
 ## Ссылки
 
-- Живой MVP: https://geological-ordinance-freeware-mounted.trycloudflare.com/
+- Живой MVP: https://crm.aishka.su/
 - Репозиторий: https://github.com/IgorNadein/nadein-crm
 - Telegram-бот: запускается из `bot/main.py` после передачи `BOT_TOKEN`; сценарий полностью реализован и использует тот же `/api/leads`.
 

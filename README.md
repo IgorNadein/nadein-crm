@@ -1,9 +1,9 @@
 # Nadein CRM
 
-**Живой MVP:** https://geological-ordinance-freeware-mounted.trycloudflare.com/  
+**Живой MVP:** https://crm.aishka.su/  
 **GitHub:** https://github.com/IgorNadein/nadein-crm
 
-> Временный demo-instance поднят через Cloudflare Quick Tunnel для проверки тестового задания. Код не зависит от туннеля и запускается локально/Docker Compose.
+> Demo-instance доступен по отдельному HTTPS-хосту через Cloudflare Tunnel. Код не зависит от туннеля и запускается локально или через Docker Compose.
 
 Свежий мини-MVP для тестового задания: лиды из Telegram-бота и ручного ввода собираются в одной CRM, получают теги и фильтруются по ним.
 
