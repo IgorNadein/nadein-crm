@@ -23,6 +23,12 @@ This is a working **end-to-end web MVP + Telegram bot**, not a static mockup.
 | 📚 OpenAPI | https://crm.aishka.su/docs |
 | 🧪 CI | [GitHub Actions](https://github.com/IgorNadein/nadein-crm/actions) |
 
+## Interface
+
+<p align="center">
+  <img src="docs/assets/crm-dashboard.png" alt="Nadein CRM dashboard" width="100%">
+</p>
+
 ## Features
 
 - **Telegram → CRM:** bot collects name, contact and request and creates a lead through the shared API.

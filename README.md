@@ -30,6 +30,12 @@
 | 🧪 CI | [GitHub Actions](https://github.com/IgorNadein/nadein-crm/actions) |
 | 📝 Тестовое задание | [SUBMISSION.md](SUBMISSION.md) |
 
+## Интерфейс
+
+<p align="center">
+  <img src="docs/assets/crm-dashboard.png" alt="Nadein CRM dashboard" width="100%">
+</p>
+
 ## Что умеет
 
 - **Telegram → CRM:** бот собирает имя, контакт и запрос и создаёт лид через единый API.
